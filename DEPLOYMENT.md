@@ -2,18 +2,18 @@
 
 ## Public URL
 
-TBD - deploy with your Railway, Render, or Cloud Run account and replace this line with the public service URL.
+https://agent-production-be3d.up.railway.app
 
 ## Platform
 
-Railway or Render.
+Railway
 
 ## Test Commands
 
 Set these first:
 
 ```bash
-export URL=https://your-agent.example.com
+export URL=https://agent-production-be3d.up.railway.app
 export KEY=your-production-api-key
 ```
 
@@ -74,7 +74,7 @@ done
 
 ## Screenshots
 
-- `screenshots/dashboard.png` - add after deployment
-- `screenshots/running.png` - add after deployment
-- `screenshots/test.png` - add after deployment
-![alt text](image.png)
+- `screenshots/dashboard.png` - Railway dashboard
+- `screenshots/deploy.png` - deployed public service
+- `screenshots/docker-local.png` - local Docker image/container evidence
+- `screenshots/log-railway.png` - Railway runtime logs
