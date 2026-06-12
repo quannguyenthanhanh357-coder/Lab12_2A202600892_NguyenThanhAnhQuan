@@ -2,6 +2,7 @@
 import json
 import logging
 import signal
+import sys
 import time
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
@@ -22,6 +23,8 @@ from utils.mock_llm import ask as llm_ask
 logging.basicConfig(
     level=getattr(logging, settings.log_level.upper(), logging.INFO),
     format="%(message)s",
+    stream=sys.stdout,
+    force=True,
 )
 logger = logging.getLogger(__name__)
 
