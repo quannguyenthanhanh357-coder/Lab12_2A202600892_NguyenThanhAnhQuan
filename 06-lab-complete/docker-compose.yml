@@ -2,36 +2,22 @@ services:
   agent:
     build: .
     ports:
-      - "8000:8000"
+      - "8501:8501"
     environment:
-      - ENVIRONMENT=${ENVIRONMENT:-staging}
-      - APP_NAME=${APP_NAME:-Production AI Agent}
-      - APP_VERSION=${APP_VERSION:-1.0.0}
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
-      - AGENT_API_KEY=${AGENT_API_KEY:-local-dev-api-key}
-      - JWT_SECRET=${JWT_SECRET:-local-dev-jwt-secret}
-      - REDIS_URL=redis://redis:6379/0
-      - RATE_LIMIT_PER_MINUTE=${RATE_LIMIT_PER_MINUTE:-10}
-      - RATE_LIMIT_WINDOW_SECONDS=${RATE_LIMIT_WINDOW_SECONDS:-60}
-      - MONTHLY_BUDGET_USD=${MONTHLY_BUDGET_USD:-10.0}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-flash-lite}
+      - TMDB_API_KEY=${TMDB_API_KEY:-}
+      - TMDB_LANGUAGE=${TMDB_LANGUAGE:-vi-VN}
+      - TMDB_REGION=${TMDB_REGION:-VN}
+      - DEFAULT_MODEL=${DEFAULT_MODEL:-gpt-4o-mini}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
-    depends_on:
-      redis:
-        condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c",
-             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+             "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 15s
+      start_period: 20s
     restart: unless-stopped
-
-  redis:
-    image: redis:7-alpine
-    command: redis-server --maxmemory 128mb --maxmemory-policy allkeys-lru
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 3s
-      retries: 3

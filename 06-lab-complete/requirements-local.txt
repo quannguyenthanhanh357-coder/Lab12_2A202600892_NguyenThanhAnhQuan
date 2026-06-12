@@ -1,0 +1,15 @@
+# Optional: local GGUF models via llama-cpp-python
+# Install AFTER requirements.txt, only if you need DEFAULT_PROVIDER=local
+#
+# macOS (Apple Silicon) — use prebuilt wheel (recommended):
+#   pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/metal
+#
+# If build from source fails with Homebrew LLVM linker errors, use Apple clang:
+#   CC=clang CXX=clang++ pip install llama-cpp-python
+#
+# CPU-only wheel:
+#   pip install -r requirements-local.txt
+
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+
+llama-cpp-python==0.2.90
