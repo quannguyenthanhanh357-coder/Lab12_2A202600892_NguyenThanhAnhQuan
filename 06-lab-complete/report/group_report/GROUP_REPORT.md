@@ -1,7 +1,7 @@
 # Group Report: Lab 3 — Chatbot vs ReAct Agent (Movie Recommendation)
 
-- **Team Name**: [Team Name]
-- **Team Members**: [Member 1, Member 2, ...]
+- **Team Name**: Movie ReAct Agent Deployment Team
+- **Team Members**: Nguyen Thanh Anh Quan (2A202600892)
 - **Submission Date**: 2026-06-01
 
 ---
